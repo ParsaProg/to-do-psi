@@ -38,6 +38,7 @@ export default function Home() {
         borderColor="#27272A"
         borderWidth={"1px"}
         link="https://github.com/ParsaProg/to-do-psi"
+        linkMode="a"
       />
     </div>
   );
