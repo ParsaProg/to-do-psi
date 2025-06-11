@@ -10,7 +10,7 @@ const handler = NextAuth({
   ],
   callbacks: {
     async redirect({ url, baseUrl }) {
-      return `${baseUrl}/api/auth/callback/github`;
+      return baseUrl;
     },
   },
   secret: process.env.NEXTAUTH_SECRET!,
