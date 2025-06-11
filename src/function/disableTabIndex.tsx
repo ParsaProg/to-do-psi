@@ -10,6 +10,7 @@ export default function useDisableBodyTabIndex(modalRef: RefObject<HTMLElement |
     if (!modalRef.current) return;
 
     // Find all tabbable elements outside modal
+    
     const tabbableSelectors = [
       "a[href]",
       "button:not([disabled])",
