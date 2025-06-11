@@ -3,11 +3,11 @@ import Button from "@/components/ui/button";
 export default function Home() {
   return (
     <div className="dark:text-white mt-[100px] flex flex-col items-center text-center">
-      <h1 className="max-w-4xl font-black text-2xl/snug md:text-4xl/snug lg:text-6xl/snug">
+      <h1 className="m-3 max-w-4xl font-black text-2xl/snug md:text-4xl/snug lg:text-6xl/snug">
         Simplify <span className="text-[#4d6bfe]">Task Management</span> with
         Next.js 15
       </h1>
-      <h2 className="mb-5 text-center text-slate-400 mt-5 font-[500] w-[400px] text-lg">
+      <h2 className="mb-5 text-center text-slate-400 mt-3 font-[500] sm:w-[400px] w-[90%] text-lg">
         A fast, minimal to-do app built with Next.js 15 and Prisma for seamless
         task organization.
       </h2>

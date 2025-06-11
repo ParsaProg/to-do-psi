@@ -4,7 +4,7 @@ import Button from "./button";
 export default function Navbar({ loggedIn }: { loggedIn?: boolean }) {
   return (
     <div className="fixed top-0 right-0 w-full h-[70px] text-[#4d6bfe] flex items-center  dark:bg-[#09090B] border-b-[0.5px] dark:border-slate-800">
-      <div className="w-[55%] mx-auto bg-transparent flex items-center justify-between">
+      <div className="lg:w-[55%] w-[95%] mx-auto bg-transparent flex items-center justify-between">
         <Link href={"/"}>
           <div className="text-[#4d6bfe] font-[600] text-lg flex items-center gap-x-2">
             <svg
