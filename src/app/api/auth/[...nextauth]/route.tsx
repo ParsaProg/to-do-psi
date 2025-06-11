@@ -5,7 +5,7 @@ const handler = NextAuth({
   providers: [
     GitHubProvider({
       clientId: "Ov23liT9doipw77pcH46",
-      clientSecret: "1ad88848658e535f508d8c307993a91f4af80da7",
+      clientSecret: "47d0c432d7c5c15b63965a1a788aec4c9fea2010",
     }),
   ],
 });
