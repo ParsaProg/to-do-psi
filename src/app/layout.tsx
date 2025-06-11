@@ -3,13 +3,13 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
+import Providers from "./Providers"; // اینو اضافه کن
 
 const inter = Poppins({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
-
 
 export const metadata: Metadata = {
   title: "To-do",
@@ -23,12 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} dark:bg-[#09090b]`}
-      >
-        <Navbar />
-        {children}
-        <Footer />
+      <body className={`${inter.variable} dark:bg-[#09090b]`}>
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

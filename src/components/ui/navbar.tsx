@@ -5,8 +5,13 @@ import Modal from "./showModal";
 import { FocusTrap } from "focus-trap-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { signIn } from "next-auth/react";
+import UserInfo from "@/app/api/UserInfo";
+import { useSession } from "next-auth/react";
 
-export default function Navbar({ loggedIn }: { loggedIn?: boolean }) {
+export default function Navbar() {
+  const { data: session } = useSession();
+  const [isLoggined, setIsLoggined] = useState<boolean>();
   const [screenWidth, setScreenWidth] = useState<number>(0);
   useEffect(() => {
     // Set initial width on mount (client-side)
@@ -20,6 +25,10 @@ export default function Navbar({ loggedIn }: { loggedIn?: boolean }) {
     // Cleanup listener on unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    setIsLoggined(!!session?.user);
+  }, [session]);
   const [showModal, setShowModal] = useState(false);
   return (
     <div className="fixed top-0 right-0 w-full h-[70px] text-[#4d6bfe] flex items-center  dark:bg-[#09090B] border-b-[0.5px] dark:border-slate-800">
@@ -53,7 +62,7 @@ export default function Navbar({ loggedIn }: { loggedIn?: boolean }) {
             TodoNext
           </div>
         </Link>
-        {loggedIn ? (
+        {isLoggined ? (
           <div className="flex items-center gap-x-4">
             {" "}
             <Button
@@ -84,7 +93,7 @@ export default function Navbar({ loggedIn }: { loggedIn?: boolean }) {
                 console.log("q");
               }}
             />
-            <div className="rounded-full cursor-pointer w-10 h-10 bg-[url(https://quera.org/media/CACHE/images/public/avatars/5b5d6e303d614937b5539e30ce425fd1/baa30572cb80be55e6229d37f113540e.jpg)] bg-cover bg-center"></div>
+            <UserInfo />
           </div>
         ) : (
           <Button
@@ -191,6 +200,9 @@ export default function Navbar({ loggedIn }: { loggedIn?: boolean }) {
                   hoverBgColor="#2F2F2F"
                   ForColor="white"
                   linkMode="none"
+                  onPress={() => {
+                    signIn("github");
+                  }}
                 />
               </section>
               <div
