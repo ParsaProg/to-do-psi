@@ -13,6 +13,7 @@ const handler = NextAuth({
       return `${baseUrl}/api/auth/callback/github`;
     },
   },
+  secret: process.env.NEXTAUTH_SECRET!,
 });
 
 export { handler as GET, handler as POST };
