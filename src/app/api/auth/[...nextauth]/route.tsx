@@ -8,6 +8,11 @@ const handler = NextAuth({
       clientSecret: process.env.GITHUB_SECRET!,
     }),
   ],
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      return `${baseUrl}/api/auth/callback/github`;
+    },
+  },
 });
 
 export { handler as GET, handler as POST };
